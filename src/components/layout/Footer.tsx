@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -64,19 +64,19 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
                 <span className="text-sm text-primary-foreground/70">
-                  Shop 208, 2nd Floor, R6 Commercial Complex, Life Republic Township, Marunji, Pune 411057
+                  Shop No. 208, 2nd Floor, R6 Commercial Complex, Life Republic Township, Marunji, Pune 411057
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+919999999999" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
-                  +91-99999-99999
+                <a href="tel:+917387166259" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                  +91 73871 66259
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:info@smilecatchers.in" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
-                  info@smilecatchers.in
+                <MessageCircle className="w-4 h-4 text-primary shrink-0" />
+                <a href="https://wa.me/917387166259" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                  WhatsApp: +91 73871 66259
                 </a>
               </li>
               <li className="flex items-center gap-3">
