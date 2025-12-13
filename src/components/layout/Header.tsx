@@ -22,19 +22,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-lg shadow-glow"
+              className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-sm shadow-md"
             >
               SC
             </motion.div>
-            <div className="hidden sm:block">
-              <h1 className="font-heading text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                Smile Catchers
-              </h1>
-              <p className="text-xs text-muted-foreground">Dental Clinic & Implant Center</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}

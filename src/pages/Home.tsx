@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Shield, Clock, Award, Heart, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import doctorPhoto from "@/assets/doctor-photo.png";
-import beforeAfter1 from "@/assets/before-after-1.png";
-import beforeAfter2 from "@/assets/before-after-2.png";
-import beforeAfter3 from "@/assets/before-after-3.png";
-import clinic1 from "@/assets/clinic-1.png";
-import clinic2 from "@/assets/clinic-2.png";
+import clinicBg from "@/assets/clinic-1.png";
 
 const features = [
   { icon: Award, title: "14+ Years Experience", desc: "Trusted expertise in advanced dental care" },
@@ -16,79 +12,82 @@ const features = [
   { icon: Clock, title: "Flexible Hours", desc: "Morning & evening appointments available" },
 ];
 
-const beforeAfterImages = [
-  { src: beforeAfter1, alt: "Dental transformation case 1" },
-  { src: beforeAfter2, alt: "Dental transformation case 2" },
-  { src: beforeAfter3, alt: "Dental transformation case 3" },
-];
-
 export default function Home() {
   return (
     <div className="bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-hero-gradient">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent to-transparent rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src={clinicBg} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left: Doctor Profile + Clinic Info */}
+        {/* Animated decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-20 w-[300px] h-[300px] bg-accent/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+            {/* Left: Clinic Info */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-3"
             >
-              {/* Clinic Name with Doctor Photo */}
-              <div className="flex items-center gap-5 mb-6">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="relative"
-                >
-                  <div className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
-                    <img 
-                      src={doctorPhoto} 
-                      alt="Dr. Kiran Krishna Patil" 
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <Award className="w-4 h-4 text-primary-foreground" />
-                  </div>
-                </motion.div>
-                <div>
-                  <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-                    Smile Catchers
-                  </h1>
-                  <p className="text-primary font-semibold text-lg">Dental Clinic & Implant Center</p>
-                  <p className="text-sm text-muted-foreground mt-1">Dr. Kiran Krishna Patil • BDS</p>
-                </div>
-              </div>
+              {/* Clinic Name */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-6"
+              >
+                <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
+                  Smile Catchers
+                </h1>
+                <p className="text-primary font-semibold text-xl sm:text-2xl">Dental Clinic & Implant Center</p>
+              </motion.div>
 
               {/* Tagline */}
               <motion.h2 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
+                className="text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground/80 leading-tight mb-8"
               >
                 Comfortable.{" "}
-                <span className="text-gradient">Trusted.</span>{" "}
-                <br className="hidden sm:block" />
+                <span className="text-gradient font-bold">Trusted.</span>{" "}
                 Advanced Dental Care.
               </motion.h2>
+
+              {/* Doctor Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="flex items-center gap-4 mb-6 p-4 bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-soft max-w-md"
+              >
+                <Award className="w-10 h-10 text-primary shrink-0" />
+                <div>
+                  <p className="font-semibold text-foreground">Dr. Kiran Krishna Patil</p>
+                  <p className="text-sm text-muted-foreground">BDS • 14+ Years Experience</p>
+                </div>
+              </motion.div>
 
               {/* Address */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="flex items-start gap-3 mb-6 p-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50"
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="flex items-start gap-3 mb-8 p-4 bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-soft max-w-lg"
               >
                 <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                 <p className="text-sm text-muted-foreground">
@@ -100,17 +99,17 @@ export default function Home() {
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
                 className="text-lg text-muted-foreground mb-8 max-w-lg"
               >
                 Experience patient-focused dentistry with modern equipment, 
-                strict sterilization standards, and 14+ years of expertise.
+                strict sterilization standards, and compassionate care.
               </motion.p>
 
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
                 className="flex flex-wrap gap-4"
               >
                 <Button asChild variant="hero" size="lg" className="shadow-glow">
@@ -128,38 +127,35 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right: Clinic Images */}
+            {/* Right: Doctor Photo */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="lg:col-span-2 flex justify-center lg:justify-end"
             >
-              <div className="grid grid-cols-2 gap-4">
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="col-span-2 rounded-2xl overflow-hidden shadow-card"
+              <div className="relative">
+                {/* Decorative ring */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent rounded-full blur-lg" />
+                
+                {/* Doctor Photo */}
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
+                  <img 
+                    src={doctorPhoto} 
+                    alt="Dr. Kiran Krishna Patil" 
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                
+                {/* Experience badge */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.8, type: "spring" }}
+                  className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-6 py-3 rounded-2xl shadow-lg"
                 >
-                  <img src={clinic1} alt="Modern dental clinic interior" className="w-full h-64 object-cover" />
-                </motion.div>
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="rounded-2xl overflow-hidden shadow-card"
-                >
-                  <img src={clinic2} alt="Dental treatment room" className="w-full h-40 object-cover" />
-                </motion.div>
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="rounded-2xl bg-gradient-to-br from-primary to-primary/80 p-6 flex flex-col justify-center items-center text-center shadow-card"
-                >
-                  <span className="text-4xl font-bold text-primary-foreground">14+</span>
-                  <span className="text-sm text-primary-foreground/90">Years of Excellence</span>
+                  <span className="text-2xl font-bold">14+</span>
+                  <span className="text-sm block">Years</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -167,52 +163,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Before & After Section */}
+      {/* Features Section */}
       <section className="py-20 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Real Results
-            </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Smile <span className="text-gradient">Transformations</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              See the incredible results achieved by our patients through advanced dental treatments.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {beforeAfterImages.map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-shadow duration-300"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -235,7 +189,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative bg-card p-6 rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 group border border-transparent hover:border-primary/20"
+                className="relative bg-background p-6 rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 group border border-transparent hover:border-primary/20"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
                 <div className="relative">
