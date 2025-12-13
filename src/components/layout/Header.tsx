@@ -63,9 +63,9 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="tel:+919999999999" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="tel:+917387166259" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">+91-99999-99999</span>
+              <span className="hidden xl:inline">+91 73871 66259</span>
             </a>
             <Button asChild variant="hero" size="default">
               <Link to="/contact">Book Appointment</Link>
