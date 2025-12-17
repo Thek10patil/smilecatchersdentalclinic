@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ToothLogo from "@/components/ToothLogo";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -21,30 +22,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo with Tooth Icon */}
+          {/* Logo with Tooth Icon after name */}
           <Link to="/" className="flex items-center gap-2 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2"
             >
-              {/* Tooth Logo */}
-              <svg viewBox="0 0 40 48" fill="none" className="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M20 2C12 2 6 8 6 14C6 20 8 24 10 30C12 36 14 44 16 46C17 47 19 47 20 44C21 47 23 47 24 46C26 44 28 36 30 30C32 24 34 20 34 14C34 8 28 2 20 2Z" 
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path 
-                  d="M14 14C14 14 16 16 20 16C24 16 26 14 26 14" 
-                  stroke="hsl(var(--card))"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <span className="font-heading font-bold text-lg text-foreground hidden sm:block">Smile Catchers</span>
+              <span className="font-heading font-bold text-lg text-foreground">Smile Catchers</span>
+              <ToothLogo className="w-8 h-8 text-primary" />
             </motion.div>
           </Link>
 
