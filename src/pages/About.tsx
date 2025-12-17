@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Award, Users, Heart, Sparkles } from "lucide-react";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinic1 from "@/assets/clinic-1.png";
+import clinic2 from "@/assets/clinic-2.png";
+import clinic3 from "@/assets/clinic-3.png";
 
 const qualifications = [
   "BDS - Bachelor of Dental Surgery",
@@ -121,21 +123,43 @@ export default function About() {
         </div>
       </section>
 
-      {/* Clinic Image */}
+      {/* Clinic Images */}
       <section className="py-12 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden shadow-card"
+            className="text-center mb-8"
           >
-            <img 
-              src={clinic1} 
-              alt="Smile Catchers Dental Clinic Interior" 
-              className="w-full h-64 sm:h-80 object-cover"
-            />
+            <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
+              Our Clinic
+            </h2>
+            <p className="text-muted-foreground">
+              A modern, comfortable environment for your dental care
+            </p>
           </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[clinic1, clinic2, clinic3].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="rounded-2xl overflow-hidden shadow-card group"
+              >
+                <div className="aspect-[4/3] relative">
+                  <img 
+                    src={img} 
+                    alt={`Smile Catchers Dental Clinic - View ${i + 1}`} 
+                    className="w-full h-full object-contain bg-background group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -2,40 +2,52 @@ import { motion } from "framer-motion";
 import { Stethoscope, Heart, Sparkles, Baby, Crown, Activity } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import serviceImplants from "@/assets/service-implants.jpg";
+import serviceRootcanal from "@/assets/service-rootcanal.jpg";
+import serviceCosmetic from "@/assets/service-cosmetic.jpg";
+import servicePediatric from "@/assets/service-pediatric.jpg";
+import serviceCrowns from "@/assets/service-crowns.jpg";
+import serviceGum from "@/assets/service-gum.jpg";
 
 const services = [
   {
     icon: Stethoscope,
+    image: serviceImplants,
     title: "Dental Implants",
     desc: "Full-mouth rehabilitations and single-tooth implants using premium materials and advanced techniques for natural-looking, long-lasting results.",
     features: ["Single Tooth Implants", "Full Mouth Rehabilitation", "Implant-Supported Dentures"],
   },
   {
     icon: Activity,
+    image: serviceRootcanal,
     title: "Root Canal Treatment",
     desc: "Pain-managed endodontic treatment with modern rotary instruments and apex locators for precise, comfortable procedures.",
     features: ["Single Visit RCT", "Re-RCT Procedures", "Post & Core"],
   },
   {
     icon: Sparkles,
+    image: serviceCosmetic,
     title: "Cosmetic Dentistry",
     desc: "Transform your smile with professional whitening, veneers, and complete smile design services tailored to your preferences.",
     features: ["Teeth Whitening", "Dental Veneers", "Smile Makeover"],
   },
   {
     icon: Baby,
+    image: servicePediatric,
     title: "Pediatric Care",
     desc: "Gentle, child-friendly dental care creating positive experiences for young patients in a comfortable environment.",
     features: ["Preventive Care", "Fluoride Treatment", "Sealants"],
   },
   {
     icon: Crown,
+    image: serviceCrowns,
     title: "Crowns & Bridges",
     desc: "Durable, aesthetically pleasing restorations crafted to match your natural teeth and restore full functionality.",
     features: ["Ceramic Crowns", "Metal-Free Options", "Fixed Bridges"],
   },
   {
     icon: Heart,
+    image: serviceGum,
     title: "Gum Treatment & Scaling",
     desc: "Comprehensive periodontal care including deep cleaning, gum surgery, and ongoing maintenance for healthy gums.",
     features: ["Deep Scaling", "Gum Surgery", "Periodontal Maintenance"],
@@ -77,10 +89,22 @@ export default function Services() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-card rounded-2xl shadow-soft hover:shadow-card transition-shadow overflow-hidden group"
               >
-                <div className="p-6">
-                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                {/* Service Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/90 flex items-center justify-center shadow-lg">
+                      <service.icon className="w-6 h-6 text-primary-foreground" />
+                    </div>
                   </div>
+                </div>
+                
+                <div className="p-6">
                   <h3 className="font-heading text-xl font-semibold text-foreground mb-3">
                     {service.title}
                   </h3>

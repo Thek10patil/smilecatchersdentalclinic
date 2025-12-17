@@ -2,28 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Shield, Clock, Award, Heart, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ToothLogo from "@/components/ToothLogo";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinicBg from "@/assets/clinic-hero-bg.jpg";
-
-// Minimalistic tooth logo component
-const ToothLogo = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 40 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path 
-      d="M20 2C12 2 6 8 6 14C6 20 8 24 10 30C12 36 14 44 16 46C17 47 19 47 20 44C21 47 23 47 24 46C26 44 28 36 30 30C32 24 34 20 34 14C34 8 28 2 20 2Z" 
-      fill="currentColor"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path 
-      d="M14 14C14 14 16 16 20 16C24 16 26 14 26 14" 
-      stroke="hsl(var(--card))"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>
-);
 
 const features = [
   { icon: Award, title: "14+ Years Experience", desc: "Trusted expertise in advanced dental care" },
@@ -70,11 +51,11 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="mb-6"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <ToothLogo className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
+                <div className="flex items-center gap-4 mb-2">
                   <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                     Smile Catchers
                   </h1>
+                  <ToothLogo className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-primary" />
                 </div>
                 <p className="text-primary font-semibold text-xl sm:text-2xl">Dental Clinic & Implant Center</p>
               </motion.div>
