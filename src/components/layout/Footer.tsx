@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle, Mail } from "lucide-react";
+import ToothLogo from "@/components/ToothLogo";
 
 export default function Footer() {
   return (
@@ -9,14 +10,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-heading font-bold text-sm">
-                SC
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold">Smile Catchers</h3>
-                <p className="text-xs text-primary-foreground/70">Dental Clinic & Implant Center</p>
-              </div>
+              <span className="font-heading font-semibold">Smile Catchers</span>
+              <ToothLogo className="w-8 h-8 text-primary" />
             </div>
+            <p className="text-xs text-primary-foreground/70 mb-3">Dental Clinic & Implant Center</p>
             <p className="text-sm text-primary-foreground/70 leading-relaxed">
               Providing exceptional dental care with modern technology and a patient-first approach.
             </p>
@@ -77,6 +74,12 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4 text-primary shrink-0" />
                 <a href="https://wa.me/917387166259" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
                   WhatsApp: +91 73871 66259
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-primary shrink-0" />
+                <a href="mailto:smilecatchers22@gmail.com" className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                  smilecatchers22@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">

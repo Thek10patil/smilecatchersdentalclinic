@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Send, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, Send, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -21,6 +21,12 @@ const contactInfo = [
     label: "WhatsApp",
     value: "+91 73871 66259",
     href: "https://wa.me/917387166259",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "smilecatchers22@gmail.com",
+    href: "mailto:smilecatchers22@gmail.com",
   },
   {
     icon: Clock,
@@ -100,7 +106,7 @@ export default function Contact() {
                 Contact Information
               </h2>
 
-              <div className="space-y-6 mb-8">
+              <div className="space-y-4 mb-8">
                 {contactInfo.map((info) => (
                   <div key={info.label} className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent flex items-center justify-center shrink-0">
