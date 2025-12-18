@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Shield, Clock, Award, Heart, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ToothLogo from "@/components/ToothLogo";
+import PageTransition from "@/components/PageTransition";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinicBg from "@/assets/clinic-hero-bg.jpg";
 
@@ -15,7 +16,8 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="bg-background">
+    <PageTransition>
+      <div className="bg-background">
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -242,6 +244,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 }

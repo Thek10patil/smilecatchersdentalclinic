@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Award, Users, Heart, Sparkles } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinic1 from "@/assets/clinic-1.png";
 import clinic2 from "@/assets/clinic-2.png";
@@ -22,7 +23,8 @@ const values = [
 
 export default function About() {
   return (
-    <div className="bg-background">
+    <PageTransition>
+      <div className="bg-background">
       {/* Hero */}
       <section className="bg-hero-gradient py-20 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -206,6 +208,7 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 }

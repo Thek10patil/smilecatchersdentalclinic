@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Send, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import PageTransition from "@/components/PageTransition";
 
 const contactInfo = [
   {
@@ -68,7 +69,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="bg-background">
+    <PageTransition>
+      <div className="bg-background">
       {/* Hero */}
       <section className="bg-hero-gradient py-20 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -251,6 +253,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 }
