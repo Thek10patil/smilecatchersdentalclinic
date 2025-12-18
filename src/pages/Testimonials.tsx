@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 
 const testimonials = [
   {
@@ -66,7 +67,8 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="bg-background">
+    <PageTransition>
+      <div className="bg-background">
       {/* Hero */}
       <section className="bg-hero-gradient py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,6 +182,7 @@ export default function Testimonials() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 }

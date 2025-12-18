@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 import beforeAfter1 from "@/assets/before-after-1.png";
 import beforeAfter2 from "@/assets/before-after-2.png";
 import beforeAfter3 from "@/assets/before-after-3.png";
@@ -26,7 +27,8 @@ export default function Gallery() {
     : galleryImages.filter(img => img.category === filter);
 
   return (
-    <div className="bg-background min-h-screen">
+    <PageTransition>
+      <div className="bg-background min-h-screen">
       {/* Hero */}
       <section className="bg-hero-gradient py-20 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -136,6 +138,7 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </PageTransition>
   );
 }
