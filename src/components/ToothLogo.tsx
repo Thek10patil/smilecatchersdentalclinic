@@ -4,10 +4,28 @@ interface ToothLogoProps {
 
 export default function ToothLogo({ className = "" }: ToothLogoProps) {
   return (
-    <svg viewBox="0 0 40 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-      {/* Main tooth outline - elegant line art style */}
+    <svg viewBox="0 0 36 44" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+      {/* Geometric modern tooth - clean angular shapes */}
+      
+      {/* Main tooth body - hexagonal inspired shape */}
       <path 
-        d="M20 4C13 4 8 8 7 14C6 20 7 26 9 34C11 42 13 44 15 44C17 44 18 40 20 40C22 40 23 44 25 44C27 44 29 42 31 34C33 26 34 20 33 14C32 8 27 4 20 4Z" 
+        d="M18 2L28 8L30 20L26 32L22 42L18 36L14 42L10 32L6 20L8 8L18 2Z" 
+        fill="hsl(var(--primary))"
+        opacity="0.15"
+      />
+      
+      {/* Outer geometric frame */}
+      <path 
+        d="M18 2L28 8L30 20L26 32L22 42L18 36L14 42L10 32L6 20L8 8L18 2Z" 
+        stroke="hsl(var(--primary))"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      
+      {/* Crown top - angular detail */}
+      <path 
+        d="M12 10L18 6L24 10" 
         stroke="hsl(var(--primary))"
         strokeWidth="2"
         strokeLinecap="round"
@@ -15,91 +33,46 @@ export default function ToothLogo({ className = "" }: ToothLogoProps) {
         fill="none"
       />
       
-      {/* Crown detail - top cusps */}
+      {/* Inner geometric accent lines */}
       <path 
-        d="M11 13C11 9 15 6 20 6C25 6 29 9 29 13" 
-        stroke="hsl(var(--primary))"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-      />
-      
-      {/* Left cusp arc */}
-      <path 
-        d="M11 13C11 15 13 17 16 17" 
+        d="M14 14L18 12L22 14" 
         stroke="hsl(var(--primary))"
         strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
+        opacity="0.7"
       />
       
-      {/* Right cusp arc */}
-      <path 
-        d="M29 13C29 15 27 17 24 17" 
-        stroke="hsl(var(--primary))"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      
-      {/* Center groove */}
-      <path 
-        d="M20 17L20 28" 
-        stroke="hsl(var(--primary))"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity="0.6"
-        fill="none"
-      />
-      
-      {/* Root split lines */}
-      <path 
-        d="M17 32C16 36 15 40 15 44" 
+      {/* Center vertical line */}
+      <line 
+        x1="18" y1="16" x2="18" y2="28" 
         stroke="hsl(var(--primary))"
         strokeWidth="1.5"
         strokeLinecap="round"
         opacity="0.5"
-        fill="none"
       />
       
-      <path 
-        d="M23 32C24 36 25 40 25 44" 
+      {/* Root division lines */}
+      <line 
+        x1="14" y1="32" x2="14" y2="42" 
         stroke="hsl(var(--primary))"
         strokeWidth="1.5"
         strokeLinecap="round"
-        opacity="0.5"
-        fill="none"
+        opacity="0.4"
+      />
+      <line 
+        x1="22" y1="32" x2="22" y2="42" 
+        stroke="hsl(var(--primary))"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.4"
       />
       
-      {/* Sparkle accent */}
-      <g opacity="0.8">
-        <line 
-          x1="33" y1="8" x2="37" y2="4" 
-          stroke="hsl(var(--primary))"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <line 
-          x1="35" y1="3" x2="35" y2="9" 
-          stroke="hsl(var(--primary))"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <line 
-          x1="32" y1="6" x2="38" y2="6" 
-          stroke="hsl(var(--primary))"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </g>
-      
-      {/* Small dot accents */}
-      <circle 
-        cx="38" 
-        cy="11" 
-        r="1" 
+      {/* Geometric sparkle - diamond shape */}
+      <path 
+        d="M32 4L34 6L32 8L30 6Z" 
         fill="hsl(var(--primary))"
-        opacity="0.6"
       />
     </svg>
   );
