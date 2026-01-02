@@ -235,7 +235,7 @@ export default function Home() {
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-foreground bg-card hover:bg-card/90">
                 <a href="https://wa.me/917387166259" target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>
