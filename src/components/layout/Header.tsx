@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ToothLogo from "@/components/ToothLogo";
+import smileCatchersLogo from "@/assets/smile-catchers-logo.png";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -28,8 +28,8 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2"
             >
+              <img src={smileCatchersLogo} alt="Smile Catchers" className="h-10 w-auto" />
               <span className="font-heading font-bold text-lg text-foreground">Smile Catchers</span>
-              <ToothLogo className="w-8 h-8 text-primary" />
             </motion.div>
           </Link>
 

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Shield, Clock, Award, Heart, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ToothLogo from "@/components/ToothLogo";
 import PageTransition from "@/components/PageTransition";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinicBg from "@/assets/clinic-hero-bg.jpg";
+import smileCatchersLogo from "@/assets/smile-catchers-logo.png";
 
 const features = [
   { icon: Award, title: "14+ Years Experience", desc: "Trusted expertise in advanced dental care" },
@@ -57,7 +57,7 @@ export default function Home() {
                   <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                     Smile Catchers
                   </h1>
-                  <ToothLogo className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-primary" />
+                  <img src={smileCatchersLogo} alt="Smile Catchers Logo" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20" />
                 </div>
                 <p className="text-primary font-semibold text-xl sm:text-2xl">Dental Clinic & Implant Center</p>
               </motion.div>
