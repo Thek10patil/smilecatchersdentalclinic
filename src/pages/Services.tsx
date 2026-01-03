@@ -95,7 +95,7 @@ export default function Services() {
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/60 via-transparent to-transparent" />
                   </div>
