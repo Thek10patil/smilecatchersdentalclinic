@@ -53,11 +53,18 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="mb-6"
               >
-                <div className="flex items-center gap-4 mb-2">
+                <div className="flex items-center gap-3 mb-2">
                   <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                     Smile Catchers
                   </h1>
-                  <img src={smileCatchersLogo} alt="Smile Catchers Logo" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20" />
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-transparent rounded-full blur-md" />
+                    <img 
+                      src={smileCatchersLogo} 
+                      alt="Smile Catchers Logo" 
+                      className="relative h-10 sm:h-12 lg:h-14 w-auto mix-blend-multiply dark:mix-blend-screen opacity-90"
+                    />
+                  </div>
                 </div>
                 <p className="text-primary font-semibold text-xl sm:text-2xl">Dental Clinic & Implant Center</p>
               </motion.div>
