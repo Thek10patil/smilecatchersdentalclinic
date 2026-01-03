@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
 import doctorPhoto from "@/assets/doctor-photo.png";
 import clinicBg from "@/assets/clinic-hero-bg.jpg";
-import smileCatchersLogo from "@/assets/smile-catchers-logo.png";
-
 const features = [
   { icon: Award, title: "14+ Years Experience", desc: "Trusted expertise in advanced dental care" },
   { icon: Shield, title: "Advanced Implants", desc: "Full-mouth and single-tooth solutions" },
@@ -53,19 +51,9 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="mb-6"
               >
-                <div className="flex items-center gap-4 mb-2">
-                  <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                    Smile Catchers
-                  </h1>
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-transparent rounded-full blur-lg scale-125" />
-                    <img 
-                      src={smileCatchersLogo} 
-                      alt="Smile Catchers Logo" 
-                      className="relative h-14 sm:h-16 lg:h-20 w-auto mix-blend-multiply dark:mix-blend-screen opacity-95"
-                    />
-                  </div>
-                </div>
+                <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-2">
+                  Smile Catchers
+                </h1>
                 <p className="text-primary font-semibold text-xl sm:text-2xl">Dental Clinic & Implant Center</p>
               </motion.div>
 

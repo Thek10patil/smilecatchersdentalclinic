@@ -150,7 +150,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="rounded-2xl overflow-hidden shadow-card group"
+                className="rounded-3xl overflow-hidden shadow-card group border-4 border-primary/10"
               >
                 <div className="aspect-[4/3] relative">
                   <img 
