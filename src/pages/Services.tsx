@@ -1,48 +1,49 @@
 import { motion } from "framer-motion";
-import { Stethoscope, Heart, Sparkles, Baby, Crown, Activity, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
 
+import serviceImplants from "@/assets/service-implants.jpg";
+import serviceRootcanal from "@/assets/service-rootcanal.jpg";
+import serviceCosmetic from "@/assets/service-cosmetic.jpg";
+import servicePediatric from "@/assets/service-pediatric.jpg";
+import serviceCrowns from "@/assets/service-crowns.jpg";
+import serviceGum from "@/assets/service-gum.jpg";
+
 const services = [
   {
-    icon: Stethoscope,
-    color: "from-blue-500 to-blue-600",
+    image: serviceImplants,
     title: "Dental Implants",
     desc: "Full-mouth rehabilitations and single-tooth implants using premium materials and advanced techniques for natural-looking, long-lasting results.",
     features: ["Single Tooth Implants", "Full Mouth Rehabilitation", "Implant-Supported Dentures"],
   },
   {
-    icon: Activity,
-    color: "from-red-500 to-red-600",
+    image: serviceRootcanal,
     title: "Root Canal Treatment",
     desc: "Pain-managed endodontic treatment with modern rotary instruments and apex locators for precise, comfortable procedures.",
     features: ["Single Visit RCT", "Re-RCT Procedures", "Post & Core"],
   },
   {
-    icon: Sparkles,
-    color: "from-amber-500 to-amber-600",
+    image: serviceCosmetic,
     title: "Cosmetic Dentistry",
     desc: "Transform your smile with professional whitening, veneers, and complete smile design services tailored to your preferences.",
     features: ["Teeth Whitening", "Dental Veneers", "Smile Makeover"],
   },
   {
-    icon: Baby,
-    color: "from-pink-500 to-pink-600",
+    image: servicePediatric,
     title: "Pediatric Care",
     desc: "Gentle, child-friendly dental care creating positive experiences for young patients in a comfortable environment.",
     features: ["Preventive Care", "Fluoride Treatment", "Sealants"],
   },
   {
-    icon: Crown,
-    color: "from-purple-500 to-purple-600",
+    image: serviceCrowns,
     title: "Crowns & Bridges",
     desc: "Durable, aesthetically pleasing restorations crafted to match your natural teeth and restore full functionality.",
     features: ["Ceramic Crowns", "Metal-Free Options", "Fixed Bridges"],
   },
   {
-    icon: Heart,
-    color: "from-emerald-500 to-emerald-600",
+    image: serviceGum,
     title: "Gum Treatment & Scaling",
     desc: "Comprehensive periodontal care including deep cleaning, gum surgery, and ongoing maintenance for healthy gums.",
     features: ["Deep Scaling", "Gum Surgery", "Periodontal Maintenance"],
@@ -89,21 +90,14 @@ export default function Services() {
                   transition={{ delay: i * 0.1 }}
                   className="bg-card rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden group border border-border/50 hover:border-primary/30"
                 >
-                  {/* Icon Header */}
-                  <div className={`relative h-32 bg-gradient-to-br ${service.color} flex items-center justify-center overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/20 blur-2xl" />
-                      <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-white/10 blur-xl" />
-                    </div>
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="relative"
-                    >
-                      <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                        <service.icon className="w-10 h-10 text-white" />
-                      </div>
-                    </motion.div>
+                  {/* Image Header */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                   </div>
                   
                   <div className="p-6">
