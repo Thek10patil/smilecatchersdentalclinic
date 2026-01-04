@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Send, MessageCircle, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Send, MessageCircle, Mail, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import PageTransition from "@/components/PageTransition";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
@@ -48,6 +49,7 @@ const services = [
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -55,13 +57,32 @@ export default function Contact() {
     message: "",
   });
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    toast({
-      title: "Appointment Request Submitted!",
-      description: "We'll contact you shortly to confirm your appointment.",
-    });
-    setFormData({ name: "", phone: "", service: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-appointment-email", {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Appointment Request Submitted!",
+        description: "We'll contact you shortly to confirm your appointment.",
+      });
+      setFormData({ name: "", phone: "", service: "", message: "" });
+    } catch (error: any) {
+      console.error("Error submitting appointment:", error);
+      toast({
+        title: "Failed to submit",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
@@ -225,9 +246,18 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full shadow-glow">
-                    <Send className="w-4 h-4 mr-2" />
-                    Submit Appointment Request
+                  <Button type="submit" variant="hero" size="lg" className="w-full shadow-glow" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit Appointment Request
+                      </>
+                    )}
                   </Button>
                 </form>
 
