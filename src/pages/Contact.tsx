@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Send, MessageCircle, Mail, Loader2 } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle, Mail, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import PageTransition from "@/components/PageTransition";
@@ -57,12 +57,31 @@ export default function Contact() {
     message: "",
   });
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const submitter = (e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+
+    if (submitter?.value === "whatsapp") {
+      const details = [
+        `Name: ${formData.name.trim()}`,
+        `Phone: ${formData.phone.trim()}`,
+        formData.service && `Service: ${formData.service}`,
+        formData.message.trim() && `Notes: ${formData.message.trim()}`,
+      ].filter(Boolean);
+      const text = `Hello Smile Catchers Dental Clinic, I'd like to book an appointment.\n\n${details.join("\n")}`;
+      window.open(`https://wa.me/917387166259?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+      toast({
+        title: "Opening WhatsApp...",
+        description: "Tap send in WhatsApp to submit your appointment request.",
+      });
+      setFormData({ name: "", phone: "", service: "", message: "" });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke("send-appointment-email", {
+      const { error } = await supabase.functions.invoke("send-appointment-email", {
         body: formData,
       });
 
@@ -73,7 +92,7 @@ export default function Contact() {
         description: "We'll contact you shortly to confirm your appointment.",
       });
       setFormData({ name: "", phone: "", service: "", message: "" });
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error submitting appointment:", error);
       toast({
         title: "Failed to submit",
@@ -246,19 +265,28 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full shadow-glow" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Submit Appointment Request
-                      </>
-                    )}
-                  </Button>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground text-center">Send your request via</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <Button type="submit" name="via" value="whatsapp" variant="hero" size="lg" className="w-full shadow-glow" disabled={isSubmitting}>
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Send on WhatsApp
+                      </Button>
+                      <Button type="submit" name="via" value="email" variant="outline" size="lg" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Mail className="w-4 h-4 mr-2" />
+                            Send via Email
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
                 </form>
 
                 <div className="mt-6 pt-6 border-t border-border/50 text-center">
